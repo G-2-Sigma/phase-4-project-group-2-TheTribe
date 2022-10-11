@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :email
       t.string :profile_picture
       t.string :bio
-      t.enum :type
+      t.integer :user_type, default: 0
       t.string :password_digest
 
       t.timestamps
