@@ -14,6 +14,10 @@ class ApplicationController < ActionController::API
     render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
   end
 
+  def authorize_potential_author
+    render json:{errors: "You cannot perform that action!"}, status: 401 unless session[:user_type] == "author"
+end
+
   def render_unprocessable_entity_response(exception)
     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
   end
