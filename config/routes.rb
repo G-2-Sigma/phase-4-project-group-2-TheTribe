@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :users
+  resources :users, only: [:create]
 
   # sessions
 
-  post '/login', to:'sessions#create'
+  post '/login', to:'sessions#login'
   delete '/logout', to: 'sessions#logout'
 
   # Routing logic: fallback requests for React Router.
