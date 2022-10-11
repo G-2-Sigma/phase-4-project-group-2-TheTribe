@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: :create_account
+    skip_before_action :authorize, only: :create
   
-    def create_account
+    def create
       user = User.create!(user_params)
       session[:user_id] = user.id
       session[:user_type] = user.type
