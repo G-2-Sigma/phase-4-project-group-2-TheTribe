@@ -7,6 +7,10 @@ class UsersController < ApplicationController
       session[:user_type] = user.type
       render json: user, status: :created
     end
+
+    def show_me
+      render json: @user
+    end
   
   
     private
