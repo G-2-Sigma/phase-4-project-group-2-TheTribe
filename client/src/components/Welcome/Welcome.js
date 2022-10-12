@@ -1,9 +1,18 @@
 import React from "react";
 
-const Welcome = () => {
+const Welcome = ({ user }) => {
   return (
     <div>
-      <h1 className="fw-lighter text-center greatVibes mt-4">Welcome to TheTribe Blog</h1>
+      {user ? (
+        <h1 className="fw-lighter text-center sulphurPoint mt-4">
+          Welcome {user.username} to TheTribe Blog
+        </h1>
+      ) : (
+        <h1 className="fw-lighter text-center sulphurPoint mt-4">
+          Please Login to see our exclusive blogs
+        </h1>
+      )}
+
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
