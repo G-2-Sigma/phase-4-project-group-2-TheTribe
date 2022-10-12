@@ -1,7 +1,11 @@
-class ReviewController < ApiController
-    before_action :authenticate
+class ReviewsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :create]
 
     # POST /api/v1/reviews
+    def index
+      rev = Review.all
+      render json: rev
+      end
     def create
       review = Review.new(review_params)
 

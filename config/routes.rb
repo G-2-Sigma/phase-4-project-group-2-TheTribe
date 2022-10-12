@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :users, only: [:create]
-  resources :reviews
+  resources :reviews, only:[:destroy,:index,:create]
   resources :rates
 
   # sessions
