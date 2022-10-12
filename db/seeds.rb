@@ -19,3 +19,13 @@ puts 'All done Sinyor!'
 # articles = JSON.parse(response)
 puts "The seeds of posts beginning"
   10.times do
+
+# categories = ['Travel','Entertaiment','Technology','Fashion','Lifestyle']
+# articles.each do |post|
+#     post.create(
+#         title: post['title'],
+#         content: post['content'],
+#         category: categories.shuffle.first
+#     )
+# end
+# puts "✅ Done seeding!"
