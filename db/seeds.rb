@@ -17,13 +17,5 @@ puts 'All done Sinyor!'
 #     https://newsapi.org/v2/everything?q=apple&from=2022-10-11&to=2022-10-11&sortBy=popularity&apiKey=a51faed345d34d54961b4577c8755a5f"
 # )
 # articles = JSON.parse(response)
-
-# categories = ['Travel','Entertaiment','Technology','Fashion','Lifestyle']
-# articles.each do |post|
-#     post.create(
-#         title: post['title'],
-#         content: post['content'],
-#         category: categories.shuffle.first
-#     )
-# end
-# puts "✅ Done seeding!"
+puts "The seeds of posts beginning"
+  10.times do

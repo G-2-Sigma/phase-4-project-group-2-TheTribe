@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   
+  namespace :api do
+    namespace :v1 do
+      resources :posts, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
+ 
+  resources :users
+  # sessions
+
+
+  
+  post '/login', to:'sessions#login'
   resources :users, only: [:create]
 
   # sessions
