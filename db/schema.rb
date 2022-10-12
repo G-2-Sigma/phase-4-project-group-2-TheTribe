@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_135047) do
+
+ActiveRecord::Schema.define(version: 2022_10_12_143551) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_135047) do
     t.string "title"
     t.string "category"
     t.string "content"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_135047) do
     t.integer "post_id"
     t.integer "user_id"
     t.string "title"
-    t.string "ratings"
+    t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
