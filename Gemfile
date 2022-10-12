@@ -21,11 +21,20 @@ gem 'fast_jsonapi'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+<<<<<<< HEAD
 # use fake data
+=======
+>>>>>>> e24bba77c5a49969a807f03c6435be92b54a8c8a
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+<<<<<<< HEAD
+=======
+
+gem "rest-client", "~> 2.1"
+
+>>>>>>> e24bba77c5a49969a807f03c6435be92b54a8c8a
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -37,7 +46,7 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
