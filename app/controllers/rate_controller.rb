@@ -1,0 +1,3 @@
+class RateController < ApplicationController
+    
+end
