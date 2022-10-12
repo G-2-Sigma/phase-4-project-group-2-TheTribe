@@ -1,38 +1,43 @@
-class ReviewController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :render_review_not_found_response
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    def show
-        review = Review.find_by(id: params[:id])
-        render json: review, status: :ok
+class ReviewController < ApiController
+    before_action :authenticate
+
+    # POST /api/v1/reviews
+    def create
+      review = Review.new(review_params)
+
+      if review.save
+        render json: ReviewSerializer.new(review).serialized_json
+      else
+        render json: errors(review), status: 422
       end
-      def update
-       review = find_review
-        review.update!(review_params)
-        render json: review, status: :ok
     end
 
-
+    # DELETE /api/v1/reviews/:id
     def destroy
-        review = find_review
-        review.destroy
-        render json: {}
+      review = Review.find(params[:id])
+
+      if review.destroy
+        head :no_content
+      else
+        render json: errors(review), status: 422
+      end
     end
 
     private
 
-    def find_review
-        Review.find(params[:id])
-    end
-
+    # Strong params
     def review_params
-        params.permit(:comment)
+      params.require(:review).permit(:title, :comment, :rates, :post_id)
     end
 
-    def render_review_not_found_response
-        render json: {error: "Review not found"}, status: :not_found
+    # fast_jsonapi serializer
+    def serializer(records, options = {})
+      ReviewSerializer
+        .new(records, options)
+        .serialized_json
     end
 
-    def render_unprocessable_entity_response(invalid)
-        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-    end   
-end
+    def errors(record)
+      { errors: record.errors.messages }
+    end
+  end
