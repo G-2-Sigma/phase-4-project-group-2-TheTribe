@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 2022_10_11_160207) do
     t.string "title"
     t.string "category"
     t.string "content"
+  create_table "rates", force: :cascade do |t|
+    t.integer "rating"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,5 +46,5 @@ ActiveRecord::Schema.define(version: 2022_10_11_160207) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
+end
 end
