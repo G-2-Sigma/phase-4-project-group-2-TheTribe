@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
   
+  namespace :api do
+    namespace :v1 do
+      resources :posts, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
+ 
   resources :users
   # sessions
+
+
   
-  post '/login', to:'sessions#create'
+  post '/login', to:'sessions#login'
+  resources :users, only: [:create]
+
+  # sessions
+
+  post '/login', to:'sessions#login'
   delete '/logout', to: 'sessions#logout'
 
   # Routing logic: fallback requests for React Router.
