@@ -2,13 +2,12 @@ class User < ApplicationRecord
     enum user_type: { regular: 0, author: 1}
     has_secure_password
 
-    # has_many :posts
+    has_many :posts, dependent: :destroy
     # has_many :reviews, through: :posts
     # has_many :ratings, through: :posts
-    has_many :reviews
+    has_many :reviews,dependent: :destroy
     has_many :posts, through: :reviews
-    has_many :ratings
-    has_many :posts, through: :ratings
+   
 
     validates :username, uniqueness: true, presence: true
     # validates :email, presence: true, uniqueness: true
