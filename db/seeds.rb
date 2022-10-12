@@ -11,6 +11,18 @@ puts "Creating Users"
 end
 puts 'All done Sinyor!'
 
+puts '🌱 seeding Authors...'
+10.times do
+    User.create(
+        username: Faker::Name.name,
+        email: Faker::Internet.email,
+        bio: Faker::Lorem.paragraph,
+        password: Faker::Internet.password(min_length: 8),
+        profile_picture: Faker::LoremFlickr.image,
+        user_type: 1
+    )
+end
+
 puts 'Now 🌱  seeding posts...'
 
 response = RestClient.get(
