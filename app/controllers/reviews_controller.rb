@@ -1,7 +1,11 @@
-class ReviewController < ApiController
-    before_action :authenticate
+class ReviewsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :create]
 
     # POST /api/v1/reviews
+    def index
+      rev = Review.all
+      render json: rev
+      end
     def create
       review = Review.new(review_params)
 
@@ -14,7 +18,7 @@ class ReviewController < ApiController
 
     # DELETE /api/v1/reviews/:id
     def destroy
-      review = Review.find(params[:id])
+      review = Review.find_by!(params[:id])
 
       if review.destroy
         head :no_content

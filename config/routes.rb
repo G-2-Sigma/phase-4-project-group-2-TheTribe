@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   
   post '/login', to:'sessions#login'
   resources :users, only: [:create]
-  resources :reviews
-  resources :rates
+  resources :reviews, only:[:destroy,:index,:create]
+
 
   # sessions
 
