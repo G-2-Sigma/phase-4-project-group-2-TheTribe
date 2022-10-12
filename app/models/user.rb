@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_many :posts, through: :reviews
     has_many :ratings
     has_many :posts, through: :ratings
+    has_many :posts
 
     validates :username, uniqueness: true, presence: true
     # validates :email, presence: true, uniqueness: true

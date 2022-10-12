@@ -9,12 +9,11 @@ module Api
 
             def show
                 post = Post.find_by(id: params[:id])
-                render json: PostSerializer.new(post).serialized_json
+                render json: PostAndReviewsSerializer.new(post).serialized_json
             end
 
             def create
                 post = Post.new(post_params)
-
                 if post.save
                     render json: PostSerializer.new(post).serialized_json
                 else
@@ -45,7 +44,7 @@ module Api
             private
 
             def post_params
-                params.require(:post).permit(:title, :category, :content)
+                params.require(:post).permit(:title, :category, :content, :user_id)
             end
         end
     end
