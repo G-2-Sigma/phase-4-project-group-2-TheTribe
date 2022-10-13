@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { BsFillPersonFill } from "react-icons/bs";
 
 
-const SignIn = () => {
+const SignIn = ({ setUser }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }
+  
   return (
     <div>
       <div className="center">
@@ -11,12 +29,14 @@ const SignIn = () => {
           <BsFillPersonFill size={50} />
         </span>
         <h1>Login</h1>
-        <form method="post">
+        <form onSubmit={handleSubmit}>
           <div className="txt_field">
             <Form.Control
               className="form__input"
               type="text"
-              placeholder="Enter email"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
 
             <span></span>
@@ -27,12 +47,16 @@ const SignIn = () => {
               className="form__input"
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <span></span>
             <label>Password</label>
           </div>
           <div className="btn__form">
-            <button className="form__btn">SignIn</button>
+            <button type="submit" className="form__btn">
+              SignIn
+            </button>
           </div>
         </form>
       </div>
