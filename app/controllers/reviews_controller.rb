@@ -1,47 +1,48 @@
 class ReviewsController < ApplicationController
   skip_before_action :authorize, only: [:index, :create]
+  def index
+    reviews = review.all
+    render json: ReviewSerializer.new(reviews).serialized_json
+end
 
-    # POST /api/v1/reviews
-    def index
-      rev = Review.all
-      render json: rev
-      end
-    def create
-      review = Review.new(review_params)
+def show
+    review = review.find_by(id: params[:id])
+    render json: ReviewSerializer.new(review).serialized_json
+end
 
-      if review.save
+def create
+    review = review.new(review_params)
+
+    if review.save
         render json: ReviewSerializer.new(review).serialized_json
-      else
-        render json: errors(review), status: 422
-      end
+    else
+       render json: {error: review.errors.messages}, status: 422
     end
+end
 
-    # DELETE /api/v1/reviews/:id
-    def destroy
-      review = Review.find_by!(params[:id])
+def update
+    review = review.find_by(id: params[:id])
 
-      if review.destroy
+    if review.update(review_params)
+        render json: ReviewSerializer.new(review).serialized_json
+    else
+       render json: {error: review.errors.messages}, status: 422
+    end
+end
+
+def destroy
+    review = review.find_by(id: params[:id])
+
+    if review.destroy
         head :no_content
-      else
-        render json: errors(review), status: 422
-      end
+    else
+       render json: {error: review.errors.messages}, status: 422
     end
+end
 
-    private
+private
 
-    # Strong params
-    def review_params
-      params.require(:review).permit(:title, :comment, :rates, :post_id)
-    end
-
-    # fast_jsonapi serializer
-    def serializer(records, options = {})
-      ReviewSerializer
-        .new(records, options)
-        .serialized_json
-    end
-
-    def errors(record)
-      { errors: record.errors.messages }
-    end
-  end
+def review_params
+    params.require(:review).permit(:title, :category, :content)
+end
+end
