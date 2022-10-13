@@ -18,11 +18,8 @@ class ReviewsController < ApplicationController
 
     # DELETE /api/v1/reviews/:id
     def destroy
-<<<<<<< HEAD
+
       review = Review.find_by!(params[:id])
-=======
-      review = Review.find(params[:id])
->>>>>>> ambundo
 
       if review.destroy
         head :no_content
@@ -35,11 +32,7 @@ class ReviewsController < ApplicationController
 
     # Strong params
     def review_params
-<<<<<<< HEAD
-      params.require(:review).permit(:title, :comment, :rates, :post_id)
-=======
       params.require(:review).permit(:title, :comment, :rating, :post_id)
->>>>>>> ambundo
     end
 
     # fast_jsonapi serializer

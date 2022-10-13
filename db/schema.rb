@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_10_12_175726) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +20,6 @@ ActiveRecord::Schema.define(version: 2022_10_12_175726) do
     t.string "title"
     t.string "category"
     t.string "content"
-<<<<<<< HEAD
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 2022_10_12_175726) do
     t.integer "rating"
     t.integer "post_id"
     t.integer "user_id"
-=======
->>>>>>> ambundo
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
