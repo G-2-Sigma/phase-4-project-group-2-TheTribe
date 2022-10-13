@@ -41,12 +41,4 @@ class ReviewsController < ApplicationController
       def review_params
           params.permit(:id, :title, :comment, :post_id, :user_id)
       end
-  
-      def render_review_not_found_response
-          render json: {error: "review not found"}, status: :not_found
-      end
-  
-      def render_unprocessable_entity_response(invalid)
-          render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-      end
   end 
