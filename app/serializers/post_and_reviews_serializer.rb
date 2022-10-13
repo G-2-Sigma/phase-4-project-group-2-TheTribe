@@ -1,5 +1,5 @@
-class PostAndReviewsSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :title, :category, :content
+class PostAndReviewsSerializer < ActiveModel::Serializer
+  
+  attributes :id, :title, :category, :content, :user_id
   has_many :reviews
 end

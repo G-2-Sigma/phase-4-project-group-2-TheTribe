@@ -4,7 +4,7 @@ module Api
 
             def index
                 posts = Post.all
-                render json: PostSerializer.new(posts).serialized_json
+                render json: PostSerializer.new(posts, options).serialized_json
             end
 
             def show
@@ -25,7 +25,7 @@ module Api
                 post = Post.find_by(id: params[:id])
 
                 if post.update(post_params)
-                    render json: PostSerializer.new(post).serialized_json
+                    render json: PostSerializer.new(post, options).serialized_json
                 else
                    render json: {error: post.errors.messages}, status: 422
                 end
@@ -45,6 +45,12 @@ module Api
 
             def post_params
                 params.require(:post).permit(:title, :category, :content, :user_id)
+            end
+
+            def options
+
+                @options ||= {include: %i[reviews]}
+
             end
         end
     end
