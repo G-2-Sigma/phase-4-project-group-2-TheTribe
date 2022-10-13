@@ -10,7 +10,7 @@ import Header from "../Header/Header";
 function App() {
   const [user, setUser] = useState(null);
 
-const api = "/users";
+  const api = "/me";
 
   useEffect(() => {
     fetch(api).then((r) => {
