@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignIn from "../../pages/SignIn/SignIn";
 import SignUp from "../../pages/SignUp/Signup";
@@ -9,6 +9,16 @@ import Header from "../Header/Header";
 
 function App() {
   const [user, setUser] = useState(null);
+
+const api = "/users";
+
+  useEffect(() => {
+    fetch(api).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
   return (
     <div className="container">
