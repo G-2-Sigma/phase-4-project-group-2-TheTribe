@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     def create
       user = User.create!(user_params)
       session[:user_id] = user.id
-      session[:user_type] = user.type
+      session[:user_type] = user.user_type
       render json: user, status: :created
     end
 

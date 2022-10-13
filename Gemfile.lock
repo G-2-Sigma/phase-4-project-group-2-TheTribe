@@ -105,18 +105,13 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.16.3)
     msgpack (1.6.0)
     netrc (0.11.0)
     nio4r (2.5.8)
-<<<<<<< HEAD
-    nokogiri (1.13.8-x86_64-linux)
-=======
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
->>>>>>> e24bba77c5a49969a807f03c6435be92b54a8c8a
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     pg (1.4.4)
     puma (5.6.5)
@@ -200,7 +195,7 @@ GEM
     zeitwerk (2.6.1)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
@@ -224,4 +219,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.21
+   2.1.4
