@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
+    before_action :authorize_potential_author
+    skip_before_action :authorize_potential_author, only: [:index, :show]
     
         def index
             render json: Post.all, status: :ok
@@ -11,8 +13,8 @@ class PostsController < ApplicationController
         end
     
         def create
-            
-                post = Post.create!(post_params)
+            user = User.find(session[:user_id])
+                post = user.posts.create!(post_params)
                 render json: post   
         end
 
@@ -37,4 +39,7 @@ class PostsController < ApplicationController
         def not_found_response
             render json: {error: "Post not found"}
         end
+        # def author?
+        #     render json: {error:'Not Authorized'}, status: :unauthorized unless session.include?(:user_id) && user.user_type == 'author'
+        # end
     end

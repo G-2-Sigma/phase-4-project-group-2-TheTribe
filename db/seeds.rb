@@ -40,6 +40,7 @@ posts.map do |post|
         title: post["title"],
         content: post["content"],
         category: categories.shuffle.first,
+        image_url : post["urlToImage"],
         user_id: users[rand(0...users.size)].id
     )
 end
