@@ -1,5 +1,9 @@
-class ReviewController < ApiController
-    before_action :authenticate
+class ReviewsController < ApplicationController
+    # before_action :authenticate
+
+    def index
+      render json: Review.all, status: 200
+    end
 
     # POST /api/v1/reviews
     def create
@@ -27,7 +31,7 @@ class ReviewController < ApiController
 
     # Strong params
     def review_params
-      params.require(:review).permit(:title, :comment, :rates, :post_id)
+      params.require(:review).permit(:title, :comment, :rating, :post_id)
     end
 
     # fast_jsonapi serializer
