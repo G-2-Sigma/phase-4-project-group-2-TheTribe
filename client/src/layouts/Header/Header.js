@@ -5,6 +5,13 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 const Header = ({ user, setUser }) => {
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
   return (
     <header>
       <Navbar collapseOnSelect expand="lg" className="navbarBg" variant="light">
@@ -32,7 +39,7 @@ const Header = ({ user, setUser }) => {
             )}
             <Nav className="me-4">
               {user ? (
-                <Link to="" className="navbarBtn">
+                <Link to="" className="navbarBtn" onClick={handleLogoutClick}>
                   Logout
                 </Link>
               ) : (
