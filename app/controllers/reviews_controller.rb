@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   
       def index
-          render json: review.all, status: :ok
+          render json: Review.all, status: :ok
       end
   
   
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
       private
   
       def find_review
-          review.find(params[:id])
+          Review.find(params[:id])
       end
   
       def review_params
