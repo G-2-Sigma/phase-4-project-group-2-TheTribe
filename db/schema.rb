@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2022_10_13_124645) do
     t.string "title"
     t.string "category"
     t.string "content"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.string "image_url"
   end
 
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2022_10_13_124645) do
     t.integer "post_id"
     t.integer "user_id"
     t.string "title"
-    t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating"
   end
 
   create_table "users", force: :cascade do |t|

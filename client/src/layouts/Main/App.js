@@ -6,9 +6,12 @@ import Welcome from "../../components/Welcome/Welcome";
 
 // components
 import Header from "../Header/Header";
+import Profile from "../../pages/Profile/Profile";
+import Post from "../../pages/Post/Post";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [post, setPost] = useState([]);
 
   const api = "/me";
 
@@ -16,6 +19,16 @@ function App() {
     fetch(api).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  const ap2 = "/posts";
+
+  useEffect(() => {
+    fetch(ap2).then((r) => {
+      if (r.ok) {
+        r.json().then((post) => setPost(post));
       }
     });
   }, []);
@@ -29,6 +42,9 @@ function App() {
             <Route path="/">
               <Welcome user={user} />
             </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
           </Switch>
         ) : (
           <Switch>
@@ -41,9 +57,14 @@ function App() {
             <Route path="/">
               <Welcome />
             </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
           </Switch>
         )}
       </main>
+
+      {user ? <Post post={post} /> : ""}
     </div>
   );
 }
