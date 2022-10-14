@@ -27,10 +27,10 @@ const Header = ({ user, setUser }) => {
             {user ? (
               <Nav className="me-auto">
                 <Link to="/post" className="navLink">
-                  Create Post
+                  {/* Create Post */}
                 </Link>
                 <Link to="/viewPost" className="navLink">
-                  Our Posts
+                  {/* Our Posts */}
                 </Link>
               </Nav>
             ) : (

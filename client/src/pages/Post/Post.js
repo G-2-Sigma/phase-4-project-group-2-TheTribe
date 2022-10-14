@@ -37,6 +37,9 @@ const Post = ({ post }) => {
                     </Card.Subtitle>
                     <Card.Text className="post__content">{content}</Card.Text>
                   </Card.Body>
+                  <button type="button" className="btn btn-success">
+                    Reviews
+                  </button>
                 </Card>
               </div>
             ))
@@ -50,6 +53,10 @@ const Post = ({ post }) => {
                     </Card.Subtitle>
                     <Card.Text className="post__content">{content}</Card.Text>
                   </Card.Body>
+
+                  <button type="button" className="btn btn-success">
+                    Reviews
+                  </button>
                 </Card>
               </div>
             ))}

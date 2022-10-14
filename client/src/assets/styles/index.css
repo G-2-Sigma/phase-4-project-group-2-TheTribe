@@ -372,6 +372,10 @@ form .txt_field {
   padding-left: 10px;
 }
 
+.bgColor{
+  background-color: #924892 !important;
+}
+
 @media (max-width: 768px) {
   .navLink {
     margin-top: 10px !important;

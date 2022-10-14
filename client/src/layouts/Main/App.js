@@ -46,7 +46,6 @@ function App() {
               <Profile />
             </Route>
           </Switch>
-          
         ) : (
           <Switch>
             <Route path="/signup">
@@ -65,8 +64,7 @@ function App() {
         )}
       </main>
 
-      <Post post={post} />
-     
+      {user ? <Post post={post} /> : ""}
     </div>
   );
 }
