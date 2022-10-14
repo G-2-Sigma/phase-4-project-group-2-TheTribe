@@ -20,14 +20,14 @@ end
 puts 'All done Sinyor!'
 
 puts 'seeding admins'
-User.create!(
-    username: "david ongaro",
-    email: "david@example.com",
-    bio: "David draws from his life story when writing about the experiences of migrant workers. His first series of poems, My Father's Hands, appeared in The New Yorker and describes how his family crossed the Texas border to give Manuel and his brothers a better life.",
-    user_type: 1,
-    profile_picture: Faker::LoremFlickr.image,
-    password: "ongaro18"
-)
+# User.create!(
+#     username: "david ongaro",
+#     email: "david@example.com",
+#     bio: "David draws from his life story when writing about the experiences of migrant workers. His first series of poems, My Father's Hands, appeared in The New Yorker and describes how his family crossed the Texas border to give Manuel and his brothers a better life.",
+#     user_type: 1,
+#     profile_picture: Faker::LoremFlickr.image,
+#     password: "ongaro18"
+# )
 
 puts '🌱 seeding Authors...'
 10.times do
