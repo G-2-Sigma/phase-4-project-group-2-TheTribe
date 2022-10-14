@@ -1,4 +1,12 @@
 puts "Creating Users"
+User.create!(
+    username: "esther njuguna",
+    password: "esther",
+    email: "dane.gorczany@green.info",
+    profile_picture: "https://loremflickr.com/300/300",
+    bio: "Voluptatem dolores voluptates. Natus odit ab. Pariatur iure velit.",
+    user_type: 0
+)
 10.times do
     User.create(
         username: Faker::Name.name,
