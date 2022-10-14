@@ -86,7 +86,6 @@ puts "creating reviews"
             rating: rand(1..5),
          user_id: User.all[rand(User.count)].id,
     post_id: Post.all[rand(Post.count)].id,
-    rating: rand(1..5)
-        )
+    )
     end
     puts "Hey yaaa our reviews done"
