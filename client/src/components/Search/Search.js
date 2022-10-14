@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import axios from "axios";
 
-
 // default state
 const initialState = {
   title: "",
@@ -11,7 +10,6 @@ const initialState = {
 };
 
 const api = "/posts";
-
 
 const Search = ({ searchItems }) => {
   const [show, setShow] = useState(false);
@@ -32,16 +30,11 @@ const Search = ({ searchItems }) => {
   // handle the form submission
   function handleSubmit(e) {
     e.preventDefault();
-    
-        axios.post(api, state);
-        // restore the form input to default with no data
-        setState({ title: "", category: "", content: "" });
-        // close modal after sucessfull submission
-        handleClose();
-        // rerender the loadPosts function
-        // loadPosts();
-      
-    
+    axios.post(api, state);
+    // restore the form input to default with no data
+    setState({ title: "", category: "", content: "" });
+    // close modal after sucessfull submission
+    handleClose();
   }
 
   return (

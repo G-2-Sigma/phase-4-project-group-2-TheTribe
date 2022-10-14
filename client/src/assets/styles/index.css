@@ -376,6 +376,30 @@ form .txt_field {
   background-color: #924892 !important;
 }
 
+.post__edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: green;
+  border: 1px solid green;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
+  cursor: pointer;
+}
+
+.post__delete{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  border: 1px solid red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .navLink {
     margin-top: 10px !important;
