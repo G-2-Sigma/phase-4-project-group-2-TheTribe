@@ -1,19 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 
-const Post = () => {
-  const [post, setPost] = useState([]);
-
-  const api = "/posts";
-
-  useEffect(() => {
-    fetch(api).then((r) => {
-      if (r.ok) {
-        r.json().then((post) => setPost(post));
-      }
-    });
-  }, []);
-
+const Post = ({post}) => {
   return (
     <div className="row d-flex align-items-center justify-content-center">
       {post.map(({ id, title, category, content }) => (
