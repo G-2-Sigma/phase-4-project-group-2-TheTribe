@@ -11,6 +11,16 @@ puts "Creating Users"
 end
 puts 'All done Sinyor!'
 
+puts 'seeding admins'
+User.create!(
+    username: "david ongaro",
+    email: "david@example.com",
+    bio: "David draws from his life story when writing about the experiences of migrant workers. His first series of poems, My Father's Hands, appeared in The New Yorker and describes how his family crossed the Texas border to give Manuel and his brothers a better life.",
+    user_type: 1,
+    profile_picture: Faker::LoremFlickr.image,
+    password: "ongaro18"
+)
+
 puts '🌱 seeding Authors...'
 10.times do
     User.create(
@@ -52,18 +62,18 @@ puts "✅ Done seeding!"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "The seeds of posts beginning"
-  10.times do
+# puts "The seeds of posts beginning"
+#   10.times do
 
-    Post.create(
-        title:Faker::Lorem.sentence(word_count: 3),
-        category:Faker::Lorem.sentence(word_count: 3),
-        content:Faker::Lorem.paragraph(sentence_count: 10)
+#     Post.create(
+#         title:Faker::Lorem.sentence(word_count: 3),
+#         category:Faker::Lorem.sentence(word_count: 3),
+#         content:Faker::Lorem.paragraph(sentence_count: 10)
 
-    )
+#     )
 
-  end
-puts "The seed of posts end"
+#   end
+# puts "The seed of posts end"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
